@@ -73,6 +73,6 @@ $$
 \dot x_2 = x_1x_2+u
 $$
 we want first state tracks $x_{ref}$.the following $u_{nom}$ results in tracking.
-$$
+```math
 u_{nom}=-x_1x_2+x_{ref}-x_1
-$$
+```
