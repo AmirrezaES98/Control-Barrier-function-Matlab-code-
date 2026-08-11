@@ -43,12 +43,14 @@ In the case that the relative degree of $b(x)$ is $d$ in [2](https://ieeexplore.
 
 Let's define the following functions:
 ```math
-\psi_o(x)=b(x)\\
-\psi_1(x)=\dot \psi_0+\alpha_1(\psi_0)\\
-.\\
-.\\
-.\\
-\psi_d(x)=\dot\psi_{d-1}+\alpha_d(\psi_{d-1})
+\begin{aligned}
+&\psi_o(x)=b(x)\\
+&\psi_1(x)=\dot \psi_0+\alpha_1(\psi_0)\\
+&.\\
+&.\\
+&.\\
+&\psi_d(x)=\dot\psi_{d-1}+\alpha_d(\psi_{d-1})
+&\end{aligned}
 ```
 where funtions $\alpha_i(.)$ belong to class $\mathcal{K}$. If we ensure that $\psi_d\ge 0$ result in satisfying $b(x)\ge 0$. This methodology is called High order control barrier function. In the former work [3](https://ieeexplore.ieee.org/abstract/document/7524935/) choosed $\alpha_i(.)=\alpha_i\ge 0$ and named it exponential control barrier function.
 
@@ -56,22 +58,28 @@ For formal proves you can see the papers that have been cited here.
 ## Building the QP for safe control
 combination of CLF and CBF results in the following QP:
 ```math
-\min u^TRu+s\delta^2\quad\quad\quad\\
-s.t.\quad L_fV+L_gVu\le \delta\\
-\psi_d\ge0
+\begin{aligned}
+&\min u^TRu+s\delta^2\\
+&s.t.\quad L_fV+L_gVu\le \delta\\
+&\psi_d\ge0
+\end{aligned}
 ```
 the first constraint is for CLF in order to form regulation(or tracking) and the second one is for safety. In this method safety is prioritize over stability, in other words whenever tracking violates the constraints tracking will not be meet by this controller.
 The other form of QP is as follows:
 ```math
-\min ||u-u_{nom}||\\
-s.t. \quad \psi_d\ge0\quad
+\begin{aligned}
+&\min ||u-u_{nom}||\\
+&s.t. \quad \psi_d\ge0
+\end{aligned}
 ```
 where $u_{nom}$ is a control input that satisfy the control objectives.
 ## Case study
 Now we are going to use this methodogoly on the following system
 ```math
-\dot x_1=-x_1+x_2\\
-\dot x_2 = x_1x_2+u
+\begin{aligned}
+&\dot x_1=-x_1+x_2\\
+&\dot x_2 = x_1x_2+u
+\end{aligned}
 ```
 we want first state tracks $x_{ref}$.the following $u_{nom}$ results in tracking.
 ```math
