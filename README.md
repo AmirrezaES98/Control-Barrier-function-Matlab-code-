@@ -85,3 +85,17 @@ we want first state tracks $x_{ref}$.the following $u_{nom}$ results in tracking
 ```math
 u_{nom}=-x_1x_2+x_{ref}-x_1
 ```
+and for constraint such $|x_1|\le 1$ we define the following functions:
+```math
+\begin{aligned}
+& \psi_0 = b(x)=1-x_1^2\\
+& \psi_1 = -2x_1(x_2-x_1)+\alpha_1\psi_0=-2x_1x_2+2x_1^2+\alpha_1\psi_0\\
+& \psi_2 = -2x_2(x_2-x_1)+4x_1(x_2-x_1)-2x_1(x_1x_2+u)+\alpha_1(-2x_1x_2+2x_1^2)\\
+&\qquad+ \alpha_2\psi_1
+\end{aligned}
+```
+So if control input makes $\psi_2\ge0$ result in $|x_1|\le 1$.
+
+In this example we used simple linear function for class $\mathcal{K}$. Simply one can see if $x_1\rightarrow 0$ input signal may become infinity which is not practical. So defining $\alpha_1,\alpha_2$ is important to ensure feasibility of QP and safety of the system.
+
+Defining function $b(x)$ and also the class $\mathcal{K}$ is important and main challeng in CBF methods which many papers on this topic have been published. Thi matterial is only simple introduction on CBF and a clear matlab code come with it to help you for simulating you dynamic and barrier function with it.
